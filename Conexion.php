@@ -4,20 +4,20 @@ class Conexion{
 	protected $db;//me va a manejar todo el control.
 	private $drive="mysql";
 	private $host="localhost";//servidor.
-	private $dbname="calificaciones";
+	private $dbname="notas2023";
 	private $user="root";
 	private $pasword="";
 
 
-public function ___construct()
+public function __construct()
 {
 	try{
 		$db = new PDO("{$this->drive}:host={$this->host};dbname={$this->dbname}",$this->user,$this->pasword);
 
 
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXEPTION);
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-		return $db;
+		//return $db;
 
 		echo "conexion realizada";
 
