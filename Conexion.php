@@ -1,7 +1,7 @@
 <?php
 class Conexion{
 
-	protected $db;//me va a manejar todo el control.
+	public $db;//me va a manejar todo el control.
 	private $drive="mysql";
 	private $host="localhost";//servidor.
 	private $dbname="notas2023";
@@ -17,7 +17,7 @@ public function __construct()
 
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-		//return $db;
+		return $db;
 
 		echo "conexion realizada";
 

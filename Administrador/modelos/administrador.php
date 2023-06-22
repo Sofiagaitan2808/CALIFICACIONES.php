@@ -1,8 +1,8 @@
 <?php
 
-include_once('../..//Conexcion.php');
+include_once('../../Conexion.php');
 
-class Administrador extends Conexcion
+class Administrador extends Conexion
 {
 public function __construct()
 {
@@ -12,7 +12,7 @@ public function __construct()
 //inserta un usuario
 public function agregarad($Nombread,$Apellidoad,$Usuarioad,$Passwordad,$Perfilad,$Estadoad)
 {
-    $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Passawordusu,Perfil,Estado)values(:Nombread,:Apellidoad,:Usuarioad,:Passwordad,:'Administrador',:'Activo')");
+    $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario, Passwordusu,Perfil,Estado)values(:Nombread,:Apellidoad,:Usuarioad,:Passwordad,:Perfilad,:Estadoad)");
 
     $statement->bindParam(":Nombread",$Nombread); 
     $statement->bindParam(":Apellidoad",$Apellidoad);
@@ -20,10 +20,11 @@ public function agregarad($Nombread,$Apellidoad,$Usuarioad,$Passwordad,$Perfilad
     $statement->bindParam(":Passwordad",$Passwordad);
     $statement->bindParam(":Perfilad",$Perfilad);
     $statement->bindParam(":Estadoad",$Estadoad);
+    
     if ($statement->execute())
      {
         echo "Usuarios registrado";
-        header('Location ../pages/index.php');
+        header('Location: ../pages/index.php');
     }else
     {
         echo "No se puede realizar el registro";
