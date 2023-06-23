@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../../estilos.css">
+	
 </head>
 <body>
 	
 	<div class="container" >
 		
-		<form action="../controlador/agregarusuarios.php" method="POST" >
-			<h1 class="center">REGISTRO DEL DOCENTE</h1>
+		<form action="../controlador/agregardocentes.php" method="POST" >
+			<h1 class="center">CONSTANCIAS DEL DOCENTE</h1>
 
 			<div class="form-group" >
 				<label>Nombre:</label>
-				<input type="text" name="txtnomdo" placeholder ="Ingrese du nombre">
+				<input type="text" name="txtnomdo" placeholder ="Ingrese su nombre">
 			</div>
 			<div class="form-group">
 				<label>Apellido:</label>
@@ -22,7 +22,7 @@
 			</div>
 			<div class="form-group">
 				<label>Documento:</label>
-				<input type="text" name="txtdocudo" placeholder="Ingrese su nombre">
+				<input type="text" name="txtdocudo" placeholder="Ingrese su documento">
 			</div>
 			<div class="form-group">
 				<label>Correo:</label>
@@ -30,23 +30,33 @@
 			</div>
 			<div class="form-group">
 				<label>Materia:</label>
-				<select name="txtmate" >
-					<option value="Matematicas">Matematicas</option>
-					<option value="Ingles">Ingles</option>
-					<option value="Sociales">Sociales</option>
-					<option value="Ciencias">Ciencias</option>
-					<option value="Sociales">Sociales</option>
-					<option value="Sociales">Sociales</option>
+				<select name="txtmatedo">
+					<option value="matematicas">matematicas</option>
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Estado:</label>
-				<select name="txtestado" >
-					<option value="Activo">Activo</option>
-					<option value="Inactivo">Inactivo</option>
-
-				</select>
+				<label>Usuario:</label>
+				<input type="text" name="txtusudo" placeholder="Ingrese su Usuario">
 			</div>
+			<div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="txtpasdo" placeholder="Ingrese su contraseña">
+            </div>
+                <div class="form-group">
+                <label>perfil:</label>
+                <select name="txtperfildo" >
+                <option name='profesor'>profesor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Estado:</label>
+                <select name="txtestadodo" >
+                <option name='activo'>activo</option>
+                <option name='inactivo'>inactivo</option>
+                </select>
+            </div>
+			
+
 			<input type="submit" class="btn btn-primary" value="Registrar">
 		</form>
 

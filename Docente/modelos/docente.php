@@ -1,5 +1,5 @@
 <?php
-<?php 
+
 class Docente extends Conexion
 {
 public function __construct()
@@ -8,20 +8,23 @@ public function __construct()
 }
 //inserta un usuario de docente
 
-public function agregardoc($Nombredoce,$Apellidodoce,$Documentodoce,$Correodoce,$Materiado,$Notasdo)
+public function agregardoc($Nombredoce,$Apellidodoce,$Documentodoce,$Correodoce,$Materiado,$Usuariodoce,$Passworddoce,$Perfildoce,$Estadodoce)
 {
-	$statement = $this->db->prepare("INSERT INTO docente(Nombredoc,Apellidodoc,Documentodoc,Correodoc,Materia,Notas)values(:Nombredoce,:Apellidodoce,:Documentodoce,:Correodoce,:Materiado,:Notasdo,)");
+	$statement = $this->db->prepare("INSERT INTO docente(Nombredoc,Apellidodoc,Documentodoc,Correodoc,Materia,Usuariodoc,Passworddoc,Perfildoc,Estadodoc)values(:Nombredoce,:Apellidodoce,:Documentodoce,:Correodoce,:Materiado,:Usuariodoce,:Passworddoce,:Perfildoce,:Estadodoce)");
 
-	$statement->bindParam(":Nombredoce",$Nombredoc); 
-	$statement->bindParam(":Apellidodoce",$Apellidodoc);
-	$statement->bindParam(":Documentodoce",$Documentodoc);
-	$statement->bindParam(":Correodoce",$Correodoc);
-	$statement->bindParam(":Materiado",$Materia);
-	$statement->bindParam(":Notasdo",$Notas);
+	$statement->bindParam(":Nombredoce",$Nombredoce); 
+	$statement->bindParam(":Apellidodoce",$Apellidodoce);
+	$statement->bindParam(":Documentodoce",$Documentodoce);
+	$statement->bindParam(":Correodoce",$Correodoce);
+	$statement->bindParam(":Materiado",$Materiado);
+	$statement->bindParam(":Usuariodoce",$Usuariodoce);
+	$statement->bindParam(":Passworddoce",$Passworddoce);
+	$statement->bindParam(":Perfildoce",$Perfildoce);
+	$statement->bindParam(":Estadodoce",$Estadodoce);
 	if ($statement->execute())
 	 {
-		echo "Usuarios registrado";
-		header('Location ../pages/index.php');
+		echo "Docente registrado";
+		header('Location ../pages/agregar.php');
 	}else
 	{
 		echo "No se puede realizar el registro";
@@ -31,7 +34,7 @@ public function agregardoc($Nombredoce,$Apellidodoce,$Documentodoce,$Correodoce,
 public function getdoc()
 {
 	$row = null;
-	$statement=$this->db->prepare("SELCET * FROM docente WHERE Perfil='Administrador'");
+	$statement=$this->db->prepare("SELECT * FROM docente WHERE Perfil='Administrador'");
 	$statement->execute();
 	while ($resul = $statement->fetch())
 	{
@@ -43,7 +46,7 @@ public function getdoc()
 public function getidoc($Id)
 {
 	$row = null;
-	$statement=$this->db->prepare("SELCET * FROM docente WHERE Perfil='Administrador' AND id_docente=:Id");
+	$statement=$this->db->prepare("SELECT * FROM docente WHERE Perfil='Administrador' AND id_docente=:Id");
 	$statement->bindParam(';Id',$Id);
 	$statement->execute();
 	while($resul =$statement->fetch())
@@ -53,9 +56,9 @@ public function getidoc($Id)
 	return $row;
 }
 
-public function updatead($Id,$Nombredoce,$Apellidodoce,$Documentodoec,$Correodoce,$Materiado,$Notasdo)
+public function updatead($Id,$Nombredoce,$Apellidodoce,$Documentodoec,$Correodoce,$Materiado,$Usuariodoce,$Passworddoce,$Perfildoce,$Estadodoce)
 {
-	$statement=$this->db->prepare("UPDATE Docentes SET Nombredoc=:Nombredoce,Apellidodoc=:Apellidodoce,Documentodoc=:Documentodoce,Correodoc=:Correodoce,Materia=:Materiado,Notas=:Notasdo WHERE id_docente=$Id");
+	$statement=$this->db->prepare("UPDATE Docentes SET Nombredoc=:Nombredoce,Apellidodoc=:Apellidodoce,Documentodoc=:Documentodoce,Correodoc=:Correodoce,Materia=:Materiado,Usuariodoc=:Usuariodoce,Passworddoc=:Passworddoce,Perfildoc=:Perfildoce,Estadodoc=:Estadodoce WHERE id_docente=$Id");
 
 	$statement->bindParam(':Id',$Id);
 	$statement->bindParam('Nombredoce',$Nombredoc);
@@ -95,4 +98,3 @@ public function delete($Id)
 
 ?>
 
-?>
