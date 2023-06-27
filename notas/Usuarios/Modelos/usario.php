@@ -10,10 +10,10 @@ public function __construct()
 }
 
 //inserta un usuario
-public function agregarad($Nombread,$Apellidoad,$Usuarioad,$Passwordad,$Perfilad,$Estadoad)
+public function agregarusu($Nombreusua,$Apellidousua,$Usuariousua,$Passwordusua,$Perfilusua,$Estadousua)
 {
     //VERIFICAR QUE NO EXISTA UN USARIO EN LA BASE DE DATOS
-    $sql1= "SELECT * FROM usuarios WHERE Usuario ='$Usuarioad'";
+    $sql1= "SELECT * FROM usuarios WHERE Usuario ='$Usuariousua'";
     $Resultado=$this->db->query($sql1);
     if ($Resultado->rowCount() > 0) {
         echo "<script>
@@ -23,14 +23,14 @@ public function agregarad($Nombread,$Apellidoad,$Usuarioad,$Passwordad,$Perfilad
 
     }else{
         //crear la sentencia sql
-    $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario, Passwordusu,Perfil,Estado)values(:Nombread,:Apellidoad,:Usuarioad,:Passwordad,:Perfilad,:Estadoad)");
+    $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario, Passwordusu,Perfil,Estado)values(:Nombreusua,:Apellidousua,:Usuariousua,:Passwordusua,:Perfilusua,:Estadousua)");
 
-    $statement->bindParam(":Nombread",$Nombread); 
-    $statement->bindParam(":Apellidoad",$Apellidoad);
-    $statement->bindParam(":Usuarioad",$Usuarioad);
-    $statement->bindParam(":Passwordad",$Passwordad);
-    $statement->bindParam(":Perfilad",$Perfilad);
-    $statement->bindParam(":Estadoad",$Estadoad);
+    $statement->bindParam(":Nombreusua",$Nombreusua); 
+    $statement->bindParam(":Apellidousua",$Apellidousua);
+    $statement->bindParam(":Usuariousua",$Usuariousua);
+    $statement->bindParam(":Passwordusua",$Passwordusua);
+    $statement->bindParam(":Perfilusua",$Perfilusua);
+    $statement->bindParam(":Estadousua",$Estadousua);
     
     if ($statement->execute())
      {
@@ -45,7 +45,7 @@ public function agregarad($Nombread,$Apellidoad,$Usuarioad,$Passwordad,$Perfilad
 }
 
 //funcion para mostrar todos los usuarios con el rol de administrador
-public function getad()
+public function getusu()
 {
     $row = null;
     $statement=$this->db->prepare("SELECT * FROM usuarios WHERE Perfil='Administrador'");
@@ -58,7 +58,7 @@ public function getad()
 }
 
 //funcion para selecionar un usuario para su id
-public function getiad($Id)
+public function getiusu($Id)
 {
     
     $statement=$this->db->prepare("SELECT * FROM usuarios WHERE id_usuario=:Id");
@@ -70,17 +70,17 @@ public function getiad($Id)
 }
 
 //funcion para actualizar los datos del usuario
-public function updatead($Id,$Nombread,$Apellidoad,$Usuarioad,$Passwordad,$Perfilad,$Estadoad)
+public function updateusu($Id,$Nombreusua,$Apellidousua,$Usuariousua,$Passwordusua,$Perfilusua,$Estadousua)
 {
-    $statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id,Nombreusu=:Nombread,Apellidousu=:Apellidoad,Usuario=:Usuarioad,Passwordusu=:Passwordad,Perfil=:Perfilad,Estado=:Estadoad WHERE id_usuario=$Id");
+    $statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id,Nombreusu=:Nombreusua,Apellidousu=:Apellidousua,Usuario=:Usuariousua,Passwordusu=:Passworusua,Perfil=:Perfilusua,Estado=:Estadousua WHERE id_usuario=$Id");
 
     $statement->bindParam(':Id',$Id);
-    $statement->bindParam(':Nombread',$Nombread);
-    $statement->bindParam(':Apellidoad',$Apellidoad);
-    $statement->bindParam(':Usuarioad',$Usuarioad);
-    $statement->bindParam(':Passwordad',$Passwordad);
-     $statement->bindParam(':Perfilad',$Perfilad);
-    $statement->bindParam(':Estadoad',$Estadoad);
+    $statement->bindParam(':Nombreusua',$Nombreusua);
+    $statement->bindParam(':Apellidousua',$Apellidousua);
+    $statement->bindParam(':Usuariousua',$Usuariousua);
+    $statement->bindParam(':Passwordusua',$Passwordusua);
+     $statement->bindParam(':Perfilusua',$Perfilusua);
+    $statement->bindParam(':Estadousua',$Estadousua);
     if($statement->execute())
     {
         header('Location: ../Pages/index.php');
