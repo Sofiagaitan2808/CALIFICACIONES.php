@@ -17,6 +17,7 @@
 		
 	?>
 	
+	
 	<div class="container" >
 		
 		<form action="../controlador/editarusuario.php" method="POST" class="table" >

@@ -22,7 +22,7 @@
 			</div>
 			<div class="form-group">
 				<label>Documento:</label>
-				<input type="text" name="txtdocudo" placeholder="Ingrese su documento">
+				<input type="number" name="txtdocudo" placeholder="Ingrese su documento">
 			</div>
 			<div class="form-group">
 				<label>Correo:</label>
@@ -32,6 +32,9 @@
 				<label>Materia:</label>
 				<select name="txtmatedo">
 					<option value="matematicas">matematicas</option>
+					<option value="economia">economia</option>
+					<option value="sociales">sociales</option>
+					<option value="fisica">fisica</option>
 				</select>
 			</div>
 			<div class="form-group">

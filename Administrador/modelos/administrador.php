@@ -72,7 +72,7 @@ public function getiad($Id)
 //funcion para actualizar los datos del usuario
 public function updatead($Id,$Nombread,$Apellidoad,$Usuarioad,$Passwordad,$Perfilad,$Estadoad)
 {
-    $statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id,Nombreusu=:Nombread,Apellidousu=:Apellidoad,Usuario=:Usuarioad,Passwordusu=:Passwordad,Perfilad=:Perfil,Estado=:Estadoad WHERE id_usuario=$Id");
+    $statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id,Nombreusu=:Nombread,Apellidousu=:Apellidoad,Usuario=:Usuarioad,Passwordusu=:Passwordad,Perfil=:Perfilad,Estado=:Estadoad WHERE id_usuario=$Id");
 
     $statement->bindParam(':Id',$Id);
     $statement->bindParam(':Nombread',$Nombread);
